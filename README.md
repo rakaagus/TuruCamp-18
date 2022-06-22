@@ -1,2 +1,4 @@
-# TuruCamp-18
-Repo Project 2 Pemograman Web Semester 2 - Wisata Depok
+# TuruComp-18
+Nama Proyek						: Tempat Wisata Kota Depok
+
+														
