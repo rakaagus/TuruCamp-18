@@ -45,21 +45,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?= base_url() ?>index.php/mahasiswa" class="nav-link">
+                <a href="<?= base_url() ?>index.php/jeniswisata" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Mahasiswa</p>
+                  <p>Jenis Wisata</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url() ?>index.php/dosen" class="nav-link">
+                <a href="<?= base_url() ?>index.php/kecamatan" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dosen</p>
+                  <p>Kecamatan</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?= base_url() ?>index.php/prodi" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Prodi</p>
+                  <p>Tempat Wisata</p>
                 </a>
               </li>
             </ul>
