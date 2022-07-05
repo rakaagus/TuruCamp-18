@@ -57,7 +57,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url() ?>index.php/prodi" class="nav-link">
+                <a href="<?= base_url() ?>index.php/tempatwisata" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tempat Wisata</p>
                 </a>

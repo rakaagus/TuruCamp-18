@@ -1,3 +1,10 @@
+<?php
+
+if(!$this->session->has_userdata('USERNAME')){
+  redirect(base_url()."index.php/login",'refresh');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

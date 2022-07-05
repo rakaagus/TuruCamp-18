@@ -63,12 +63,12 @@
 					?>
 					<tr>
 						<td><?= $nomor?></td>
-						<td><?= $kecamatan->nama?></td>
+						<td><?= $kecamatan->nama_kecamatan?></td>
 						<td>
                             <button type="button" class="btn btn-warning text-white" data-toggle="modal" data-target="#editmodal<?= $kecamatan->id ?>">
                                 Update
                             </button>
-							<a class="btn btn-danger" href="<?= base_url() ?>index.php/kecamatan/delete?id=<?= $kecamatan->id?>" role="button" onclick="if(!confirm('Yakin Hapus Data Kecamatan | <?=$kecamatan->nama?> = Dengan Id <?=$kecamatan->id?>?')) {return false}">Delete</a>
+							<a class="btn btn-danger" href="<?= base_url() ?>index.php/kecamatan/delete?id=<?= $kecamatan->id?>" role="button" onclick="if(!confirm('Yakin Hapus Data Kecamatan | <?=$kecamatan->nama_kecamatan?> = Dengan Id <?=$kecamatan->id?>?')) {return false}">Delete</a>
 						</td>
 					</tr>
 					<?php
@@ -128,7 +128,7 @@
         <?php echo form_open('kecamatan/save', '', $hidden)?>
                 <div class="form-group">
                     <label for="nama">Nama Kecamatan</label>
-                    <input type="text" class="form-control" id="nama" name="nama" value="<?= $kecamatan->nama; ?>">
+                    <input type="text" class="form-control" id="nama" name="nama" value="<?= $kecamatan->nama_kecamatan; ?>">
                 </div>
                 <div class="form-group">
                     <button name="submit" type="submit" class="btn btn-primary">Submit</button>

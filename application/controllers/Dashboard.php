@@ -4,13 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Dashboard extends CI_Controller {
 	public function index()
 	{
-		$this->load->view('layout/header');
-		$this->load->view('layout/sidebar');
-        //content
-		$this->load->view('layout/content');
-        
+		$data = array(
+			'title' => "Dashboard | Home"
+		);
 
-		$this->load->view('layout/footer');
+		$this->load->view('Backend/layout/header', $data);
+		$this->load->view('Backend/layout/sidebar');
+		$this->load->view('Backend/dasboard/index');
+		$this->load->view('Backend/layout/footer');
 	}
 }
 
