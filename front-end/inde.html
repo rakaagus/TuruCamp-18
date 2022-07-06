@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Pusita</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ms-auto text-capitalize">
+            <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+            <a class="nav-link" href="#">daftar wisata</a>
+            <a class="nav-link" href="#">Rating</a>
+            <a class="nav-link">pendaftaran</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- batas -->
+    <div class="jumbotron vw-100">
+      <div class="container text-light d-flex flex-column align-items-center justify-content-center">
+        <h1 class="display-4">pusat wisata <span> kota</span></h1>
+        <p class="lead">sudah jalan-jalan kemana hari ini?</p>
+      </div>
+    </div>
+    <!-- batas -->
+    <section>
+      <div class="container">
+        <div class="row text-center text-capitalize">
+          <div class="col">
+            <h1 class="">daftar wisata</h1>
+          </div>
+        </div>
+        <div class="row justify-content-around">
+          <div class="col-md-4">
+            <div class="card">
+              <img src="./D-Kandang-Amazing-Farm.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-around">
+          <div class="col-md-4">
+            <div class="card">
+              <img src="./Masjid-Dian-Al-Mahri.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="justify-content-around">
+          <div class="col-md-4">
+            <div class="card">
+              <img src="./Taman-Wisata-Pasir-Putih.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-4">
+            <div class="card">
+              <img src="./Agrowisata-Belimbing-Dewa.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- batas -->
+    <div class="pendaftaran text-light">
+      <div class="container">
+        <h1 class="text-center pt-5 text-capitalize">silahkan daftar disini</h1>
+        <div class="row d-flex justify-content-center formulir">
+          <div class="col-8 text-capitalize">
+            <form>
+              <div class="form-group row">
+                <label for="text1" class="col-4 col-form-label">nama lengkap</label>
+                <div class="col-8">
+                  <input id="text1" name="text1" type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="text" class="col-4 col-form-label">nomor telepon</label>
+                <div class="col-8">
+                  <input id="text" name="text" type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="select" class="col-4 col-form-label">tujuan wisata</label>
+                <div class="col-8">
+                  <select id="select" name="select" class="custom-select">
+                    <option value="tamanHerbal">taman herbal</option>
+                    <option value="kubahMas">kubah mas</option>
+                    <option value="pasirPutih">pasir putih</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="offset-4 col-8">
+                  <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>
