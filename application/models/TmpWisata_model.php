@@ -38,19 +38,26 @@
             return $query->row();
         }
 
+        public function cariId($id){
+            $this->db->where('id', $id);
+            $query = $this->db->get($this->table);
+            return $query->row();
+        }
+
         public function uploads($data){
             $sql = "UPDATE tempat_wisata SET foto1=?, foto2=?, foto3=? WHERE id=?";
             $this->db->query($sql, $data);
         }
 
         public function save($data){
-            $sql = "INSERT INTO tempat_wisata (nama, alamat, latlong, jenis_wisata_id, deskripsi, skor_rating, harga_tiket, kecamatan_id, website, fasilitas) 
-            VALUES (?,?,?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO tempat_wisata (nama, alamat, latlong, jenis_wisata_id, deskripsi, skor_rating, harga_tiket, kecamatan_id, website, fasilitas, foto1, foto2, foto3) 
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
             $this->db->query($sql, $data);
         }
 
         public function update($data){
-            $sql = "UPDATE tempat_wisata SET foto1=?, foto2=?, foto3=? WHERE id=?";
+            $sql = "UPDATE tempat_wisata 
+            SET nama=?, alamat=?, latlong=?, jenis_wisata_id=?, deskripsi=?, skor_rating=?, harga_tiket=?, kecamatan_id=?, website=?, fasilitas=?, foto1=?, foto2=?, foto3=? WHERE id=?";
             $this->db->query($sql, $data);
         }
 

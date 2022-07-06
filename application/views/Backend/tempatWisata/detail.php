@@ -125,7 +125,7 @@
 							echo '<img src="'.base_url('/uploads/wisata/no_image.png').'" alt="foto3"/>';
 						}else{
 							if(strpos($string3, "200")){
-								echo '<img width="60%" class="img-thumbnail" src="'.$filegambar2.'" alt="foto3"/>';
+								echo '<img width="60%" class="img-thumbnail" src="'.$filegambar3.'" alt="foto3"/>';
 							}
 							else{
 								echo '<img src="'.base_url('/uploads/wisata/no_image.png').'" alt="foto3"/>';
@@ -136,6 +136,9 @@
 						<?= form_open_multipart('tempatwisata/uploads');?>
 							<input type="hidden" name="id" value="<?=$wisata->id;?>">
 							<input type="hidden" name="nama" value="<?=$wisata->nama;?>">
+							<input type="hidden" name="foto1" value="<?=$wisata->foto1;?>">
+							<input type="hidden" name="foto2" value="<?=$wisata->foto2;?>">
+							<input type="hidden" name="foto3" value="<?=$wisata->foto3;?>">
 							<div class="input-group mb-3">
 							<div class="input-group-prepend">
 								<span class="input-group-text">Upload</span>

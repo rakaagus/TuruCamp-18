@@ -21,6 +21,23 @@
 	<!-- Main content -->
 	<section class="content">
 		<!-- Default box -->
+		<?php
+			if(validation_errors()){
+		?>
+		<div class="card">
+			<div class="card-header">
+				error
+			</div>
+			<div class="card-body">
+				<ul>
+					<?php if(form_error('nama')){ ?>
+					<li><?php echo form_error('nama'); ?></li>
+					<?php }?>
+				</ul>
+			</div>
+		</div>
+		<?php } ?>
+		
 		<div class="card">
 			<div class="card-header">
 				<h3 class="card-title">Data Jenis Wisata</h3>
@@ -68,7 +85,9 @@
                             <button type="button" class="btn btn-warning text-white" data-toggle="modal" data-target="#editmodal<?= $wisata->id ?>">
                                 Update
                             </button>
-							<a class="btn btn-danger" href="<?= base_url() ?>index.php/jeniswisata/delete?id=<?= $wisata->id?>" role="button" onclick="if(!confirm('Yakin Hapus Data Jenis Wisata | <?=$wisata->nama_jenis?> = Dengan Id <?=$wisata->id?>?')) {return false}">Delete</a>
+							<button type="button" class="btn btn-danger text-white" data-toggle="modal" data-target="#deletemodal<?= $wisata->id ?>">
+                                Delete
+                            </button>
 						</td>
 					</tr>
 					<?php
@@ -100,7 +119,7 @@
         <?php echo form_open('jeniswisata/save')?>
                 <div class="form-group">
                     <label for="nama">Jenis Wisata</label>
-                    <input type="text" class="form-control" id="nama" name="nama">
+                    <input type="text" class="form-control" id="nama" name="nama" value="<?php echo set_value('nama'); ?>">
                 </div>
                 <div class="form-group">
                     <button name="submit" type="submit" class="btn btn-primary">Submit</button>
@@ -140,6 +159,29 @@
     </div>
     <?php endforeach;?>
     <!--Modal edit-->
+
+	<!-- Modal Delete-->
+	<?php foreach($list_data as $wisata):?>
+	<div class="modal fade" id="deletemodal<?= $wisata->id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			Yakin Delete Data ini? <?= $wisata->nama_jenis ?>, data Akan Dihapus Permanen
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<a class="btn btn-danger" href="<?= base_url() ?>index.php/jeniswisata/delete?id=<?= $wisata->id ?>" role="button">Hapus Sekarang</a>
+		</div>
+		</div>
+	</div>
+	</div>
+	<?php endforeach;?>
 
 </div>
 <!-- /.content-wrapper -->

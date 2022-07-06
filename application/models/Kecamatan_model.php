@@ -14,12 +14,12 @@
         }
 
         public function save($data){
-            $sql = "INSERT INTO kecamatan (nama) VALUES (?)";
+            $sql = "INSERT INTO kecamatan (nama_kecamatan) VALUES (?)";
             $this->db->query($sql, $data);
         }
 
         public function update($data){
-            $sql = "UPDATE kecamatan SET nama=? WHERE id=?";
+            $sql = "UPDATE kecamatan SET nama_kecamatan=? WHERE id=?";
             $this->db->query($sql, $data);
         }
 

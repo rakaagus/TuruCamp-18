@@ -14,12 +14,12 @@
         }
 
         public function save($data){
-            $sql = "INSERT INTO jenis_wisata (nama) VALUES (?)";
+            $sql = "INSERT INTO jenis_wisata (nama_jenis) VALUES (?)";
             $this->db->query($sql, $data);
         }
 
         public function update($data){
-            $sql = "UPDATE jenis_wisata SET nama=? WHERE id=?";
+            $sql = "UPDATE jenis_wisata SET nama_jenis=? WHERE id=?";
             $this->db->query($sql, $data);
         }
 

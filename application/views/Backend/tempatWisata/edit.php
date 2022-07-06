@@ -5,13 +5,13 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>Create Tempat Wisata</h1>
+					<h1>Update Tempat Wisata</h1>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
 						<li class="breadcrumb-item"><a href="<?= base_url() ?>index.php/tempatwisata">Tempat Wisata</a></li>
-						<li class="breadcrumb-item active">Create Tempat Wisata</li>
+						<li class="breadcrumb-item active">Update Tempat Wisata</li>
 					</ol>
 				</div>
 			</div>
@@ -22,58 +22,6 @@
 	<!-- Main content -->
 	<section class="content">
 		<!-- Default box -->
-        <?php
-			if(validation_errors()){
-		?>
-		<div class="card">
-			<div class="card-header">
-				error
-			</div>
-			<div class="card-body">
-				<ul>
-					<?php if(form_error('nama')){ ?>
-					<li><?php echo form_error('nama'); ?></li>
-					<?php }?>
-
-					<?php if(form_error('latlong')){ ?>
-					<li><?php echo form_error('latlong'); ?></li>
-					<?php }?>
-
-					<?php if(form_error('jnswisata')){ ?>
-					<li><?php echo form_error('jnswisata'); ?></li>
-					<?php }?>
-
-					<?php if(form_error('kecamatan')){ ?>
-					<li><?php echo form_error('kecamatan'); ?></li>
-					<?php }?>
-
-					<?php if(form_error('rating')){ ?>
-					<li><?php echo form_error('rating'); ?></li>
-					<?php }?>
-
-					<?php if(form_error('website')){ ?>
-					<li><?php echo form_error('website'); ?></li>
-					<?php }?>
-
-					<?php if(form_error('fasilitas')){ ?>
-					<li><?php echo form_error('fasilitas'); ?></li>
-					<?php }?>
-
-					<?php if(form_error('deskripsi')){ ?>
-					<li><?php echo form_error('deskripsi'); ?></li>
-					<?php }?>
-
-					<?php if(form_error('alamat')){ ?>
-					<li><?php echo form_error('alamat'); ?></li>
-					<?php }?>
-
-					<?php if(form_error('foto')){ ?>
-					<li><?php echo form_error('foto'); ?></li>
-					<?php }?>
-				</ul>
-			</div>
-		</div>
-		<?php } ?>
 		<div class="card">
 			<div class="card-header">
 				<h3 class="card-title">Crete</h3>
@@ -99,16 +47,22 @@
 			</div>
 			<div class="card-body">
             <?php echo form_open_multipart('tempatwisata/save')?>
+            <input type="hidden" name="id_edit" value="<?=$wisata->id;?>">
+            <input type="hidden" name="foto1" value="<?=$wisata->foto1;?>">
+            <input type="hidden" name="foto2" value="<?=$wisata->foto2;?>">
+            <input type="hidden" name="foto3" value="<?=$wisata->foto3;?>">
+
+
             <div class="form-group row">
                 <label for="nama" class="col-4 col-form-label">Nama Wisata</label> 
                 <div class="col-8">
-                <input id="nama" name="nama" type="text" class="form-control" value="<?= set_value('nama'); ?>">
+                <input id="nama" name="nama" type="text" class="form-control" value="<?= $wisata->nama ?>">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="latlong" class="col-4 col-form-label">LatLong</label> 
                 <div class="col-8">
-                <input id="latlong" name="latlong" type="text" class="form-control" value="<?= set_value('latlong'); ?>">
+                <input id="latlong" name="latlong" type="text" class="form-control" value="<?= $wisata->latlong ?>">
                 </div>
             </div>
             <div class="form-group row">
@@ -116,9 +70,13 @@
                 <div class="col-8">
                 <select id="jnswisata" name="jnswisata" class="custom-select">
                     <?php 
-                        foreach($list_jnsWisata as $wisata):
+                        foreach($list_jenisWisata as $jenis):
+                            $selected = "";
+                            if($wisata->jenis_wisata_id == $jenis->id){
+                                $selected = "selected";
+                            }
                     ?>
-                    <option value="<?= $wisata->id ?>"><?= $wisata->nama_jenis ?></option>
+                    <option value="<?= $jenis->id ?>" <?= $selected ?> ><?= $jenis->nama_jenis ?></option>
                     <?php endforeach;?>
                 </select>
                 </div>
@@ -129,8 +87,12 @@
                 <select id="kecamatan" name="kecamatan" class="custom-select">
                     <?php
                         foreach($list_kecamatan as $kecamatan):
+                            $selected = "";
+                            if($wisata->kecamatan_id == $kecamatan->id ){
+                                $selected = "selected";
+                            }
                     ?>
-                    <option value="<?= $kecamatan->id ?>"><?= $kecamatan->nama_kecamatan ?></option>
+                    <option value="<?= $kecamatan->id ?>" <?= $selected ?> ><?= $kecamatan->nama_kecamatan ?></option>
                     <?php endforeach;?>
                 </select>
                 </div>
@@ -138,37 +100,37 @@
             <div class="form-group row">
                 <label for="rating" class="col-4 col-form-label">Rating</label> 
                 <div class="col-8">
-                <input id="rating" name="rating" type="number" class="form-control" value="<?= set_value('rating'); ?>">
+                <input id="rating" name="rating" type="number" class="form-control" value="<?= $wisata->skor_rating ?>">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="harga" class="col-4 col-form-label">Harga Pertiket Masuk</label> 
                 <div class="col-8">
-                <input id="harga" name="harga" type="number" class="form-control" value="<?= set_value('harga'); ?>">
+                <input id="harga" name="harga" type="number" class="form-control" value="<?= $wisata->harga_tiket ?>">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="website" class="col-4 col-form-label">Website</label> 
                 <div class="col-8">
-                <input id="website" name="website" type="text" class="form-control" value="<?= set_value('website'); ?>">
+                <input id="website" name="website" type="text" class="form-control" value="<?= $wisata->website ?>">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="fasilitas" class="col-4 col-form-label">Fasilitas</label> 
                 <div class="col-8">
-                <input id="fasilitas" name="fasilitas" type="text" class="form-control" value="<?= set_value('fasilitas'); ?>">
+                <input id="fasilitas" name="fasilitas" type="text" class="form-control" value="<?= $wisata->fasilitas ?>" >
                 </div>
             </div>
             <div class="form-group row">
                 <label for="deskripsi" class="col-4 col-form-label">Deskripsi Wisata</label> 
                 <div class="col-8">
-                <textarea id="deskripsi" name="deskripsi" cols="40" rows="5" class="form-control"><?= set_value('deskripsi'); ?></textarea>
+                <textarea id="deskripsi" name="deskripsi" cols="40" rows="5" class="form-control"><?= $wisata->deskripsi ?></textarea>
                 </div>
             </div> 
             <div class="form-group row">
                 <label for="alamat" class="col-4 col-form-label">alamat Wisata</label> 
                 <div class="col-8">
-                <textarea id="alamat" name="alamat" cols="40" rows="5" class="form-control"><?= set_value('alamat'); ?></textarea>
+                <textarea id="alamat" name="alamat" cols="40" rows="5" class="form-control"><?= $wisata->alamat ?></textarea>
                 </div>
             </div> 
             <div class="form-group row">
